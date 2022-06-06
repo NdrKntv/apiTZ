@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Exceptions\ModelFoundFailsException;
 use App\Http\Controllers\Controller;
 use App\Http\Repositories\UserRepository;
 use App\Http\Requests\UserRequest;
@@ -37,8 +38,7 @@ class UserController extends Controller
         try {
             return response()->apiResponse($this->userRepository->show($id));
         } catch (ModelNotFoundException $e) {
-            return response()->apiResponse(['message' => 'The user with the requested identifier does not exist',
-                'fails' => ['user_id' => ['User not found']]], 404);
+            throw new ModelFoundFailsException('user', 'user_id');
         }
     }
 }
