@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Http\Services\ImageServices\Compression\ImageCompressionInterface;
+use App\Http\Services\ImageServices\Compression\Tinypng;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(ImageCompressionInterface::class, Tinypng::class);
     }
 
     /**
@@ -23,6 +26,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Model::unguard();
     }
 }
