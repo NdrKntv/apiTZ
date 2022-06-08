@@ -19,7 +19,7 @@ class User extends Model
 
     public function getPhotoAttribute($value)
     {
-        return public_path($value);
+        return env('APP_URL').':8000/storage/'.$value;
     }
 
     public function position()
