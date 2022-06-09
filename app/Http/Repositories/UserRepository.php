@@ -41,7 +41,7 @@ class UserRepository
     {
         $attributes = $request->safe()->except('photo');
 
-        $imagePath = 'users\\' . str_replace('+380', '', $attributes['phone']);
+        $imagePath = 'users/' . str_replace('+380', '', $attributes['phone']);
         $attributes['photo'] = $this->imageStore->cropAndStore($request->file('photo'), $imagePath, 70)[0];
 
         $user = User::create($attributes);

@@ -16,7 +16,7 @@ class UserFactory extends Factory
             'name' => $name,
             'email' => $name . '@mail.com',
             'phone' => '+380' . $this->faker->unique()->numerify('#########'),
-            'photo' => 'users\000000000_70x70.jpg'
+            'photo' => 'users/000000000_70x70.jpg'
         ];
     }
 }
