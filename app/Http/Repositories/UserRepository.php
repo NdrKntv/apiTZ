@@ -46,6 +46,7 @@ class UserRepository
 
         $user = User::create($attributes);
 
+        request()->user()->currentAccessToken()->delete();
         return ['user_id' => $user->id, 'message' => 'New user successfully registered'];
     }
 

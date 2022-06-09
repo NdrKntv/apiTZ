@@ -37,7 +37,7 @@ class CropAndStore
 
             $returnedPath = $storagePath . '_' . $w . 'x' . $h . '.jpg';
             $pathArray[] = $returnedPath;
-            $fullPath = storage_path('app\public\\' . $returnedPath);
+            $fullPath = storage_path('app\public\images\\' . $returnedPath);
 
             $img->fit($w, $h)->save($fullPath);
             $this->compression->compress($fullPath);
