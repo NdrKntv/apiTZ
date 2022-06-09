@@ -1,4 +1,4 @@
-const apiUrl = 'http://127.0.0.1:8000/api/v1/'
+const apiUrl = window.location.href + '/api/v1/'
 const getCookieValue = () => (
     document.cookie.match('(^|;)\\s*' + 'token' + '\\s*=\\s*([^;]+)')?.pop() || ''
 )
